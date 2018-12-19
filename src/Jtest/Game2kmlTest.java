@@ -18,18 +18,18 @@ class Game2kmlTest {
 	void testGame2kml() {
 		//create new game
 		Game g = new Game();
-		Point3D point = new Point3D(1, 2, 3);
-		int weight =1,radius = 1;
+		Point3D pointF = new Point3D(32.1047478937381, 35.2036289192263, 3);
+		Point3D pointP = new Point3D(32.104309203036, 35.2050594994311, 3);
+		int weight =1,radius = 1, id=1, speed=3;
 		
-		Fruit f = new Fruit(point, 2, weight);
-		Pacman pacman= new Pacman(point, 2, 2, radius);
+		Fruit f = new Fruit(pointF,id , weight);
+		Pacman pacman= new Pacman(pointP, id, speed, radius);
 		
 		g.addFruit(f);
 		g.addPacman(pacman);
-		//Game2csv g2 = new Game2csv(g,"C:\\Users\\Dana Mor\\eclipse-workspace\\PacmanGame\\TestFiles\\game");
-		Game2kml g2k = new Game2kml(g,"C:\\Users\\Dana Mor\\eclipse-workspace\\PacmanGame\\TestFiles\\gameK");
+		Game2kml g2k = new Game2kml(g,"C:\\Users\\Dana Mor\\eclipse-workspace\\PacmanPlay\\TestFiles\\gameK");
 		
-		File file = new File("C:\\Users\\Dana Mor\\eclipse-workspace\\PacmanGame\\TestFiles\\gameK.kml");
+		File file = new File("C:\\Users\\Dana Mor\\eclipse-workspace\\PacmanPlay\\TestFiles\\gameK.kml");
 		// Check file exported
 		assertTrue(file.exists());
 	}

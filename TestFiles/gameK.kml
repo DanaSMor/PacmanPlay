@@ -3,22 +3,22 @@
 <Icon><href>https://cdn1.iconfinder.com/data/icons/game-13/100/__4-512.png</href>
 </Icon></IconStyle></Style><Style id="fruit"><IconStyle>
 <Icon><href>https://cdn2.iconfinder.com/data/icons/vegetable-and-fruit-fill-style/64/strawberry-fruit-tasty-dessert-juicy-512.png</href></Icon></IconStyle></Style><Style id="green"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style>
-<Folder><name>Pacman 2</name>
+<Folder><name>Pacman 1</name>
 <Placemark>
-<name><![CDATA[ Pacman 2]]></name>
-<description><b> radius:1.0</b><b> speed:2.0</b></description><styleUrl>#pacman</styleUrl>
+<name><![CDATA[ Pacman 1]]></name>
+<description><b> radius:1.0</b><b> speed:3.0</b></description><styleUrl>#pacman</styleUrl>
 <Point>
-<coordinates>2.0,1.0</coordinates>
+<coordinates>35.2050594994311,32.104309203036</coordinates>
 </Point>
 <TimeStamp>
 <when>2018-12-19T00:00:00Z</when>
 </TimeStamp>
 </Placemark>
-<Placemark><name>2</name>
+<Placemark><name>1</name>
 <description>pacman</description>
 <LineString>
 <coordinates>
-2.0,1.0
+35.2050594994311,32.104309203036
 </coordinates>
 </LineString>
 </Placemark>
