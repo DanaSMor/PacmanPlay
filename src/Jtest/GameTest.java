@@ -83,7 +83,7 @@ class GameTest {
 	@Test
 	void testNumOffruits() {
 		game = new Game();
-		int radius = 1, weight =1, id=1;
+		int weight =1, id=1;
 		for(int i=1; i<20; i++) { // Let's check on frame 600*600
 			int x = (int)(Math.random()*600);
 			int y = (int)(Math.random()*600);

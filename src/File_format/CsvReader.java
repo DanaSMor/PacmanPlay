@@ -17,7 +17,7 @@ public class CsvReader {
 
 	/**
 	 * 
-	 * @param str - path of the file
+	 * @param str path of the file
 	 */
 	public CsvReader(String str) 
 	{
@@ -56,7 +56,8 @@ public class CsvReader {
 	}
 
 	/**
-	 * returns the header
+	 * @return the header
+	 * 
 	 */
 	public ArrayList<String>  get_header()
 	{

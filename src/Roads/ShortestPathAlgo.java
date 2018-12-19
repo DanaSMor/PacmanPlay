@@ -9,6 +9,7 @@ import Gameboard.Game;
 import Gameboard.Pacman;
 /**
  * @author Dana Mor and Or avital
+ * 
  * this class calculate the routs of the pacmans
  */
 
@@ -23,7 +24,7 @@ public class ShortestPathAlgo {
 
 	/**
 	 * 
-	 * @param game - this function gets a game
+	 * @param game this function gets a game
 	 */
 	public ShortestPathAlgo(Game game)
 	{
@@ -132,12 +133,13 @@ public class ShortestPathAlgo {
 		double runningTime = Double.MIN_VALUE;
 		Iterator<Pacman> itPac = game.getPacmanIterator();
 
+		int i=1;
 		while(itPac.hasNext()) 
 		{	
 			Pacman p = itPac.next();
-			System.out.println("len of path "+p.getPath().getLengthOfPath());
 			if(p.getPath().getLengthOfPath()!=0)
 			{
+				System.out.println(i);
 				//adding path
 				p.setPoint(p.getPath().getRoad().get(0).getPoint());//sets the pacman back to his original point
 				path.add(p.getPath());
@@ -152,9 +154,11 @@ public class ShortestPathAlgo {
 				TotalResult=TotalResult+"Pacman "+p.getId()+": number of fruits--> "+p.getNumOfFruits()+
 						" weight of fruits--> "+p.getWeightOfFruit()+"\n";
 			}
+			i++;
 		}
-		System.out.println("Total Running Time: "+runningTime);
+
 		System.out.println(TotalResult);
+		System.out.println("\nTotal Running Time: "+runningTime);
 	}
 
 	public String getTotalResult() {
