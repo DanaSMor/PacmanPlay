@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.GeneralPath;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -68,7 +69,8 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 	private Cursor Fruit,Pacman; // Change icon mouse accord selection
 	private JRadioButton PacmanRadio, FruitRadio, mouseRadio; // Radio button to switch between Pacman, Fruit and Mouse
 	private boolean running; // If is in animation progress avoid to do another commands
-	private AliveThread AT; 
+	private AliveThread AT;
+	private Orien rotate;
 
 	public static void main(String[] args) {
 		new  MyFrame();
@@ -160,7 +162,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 		try {
 			fruitImg = ImageIO.read(new File("Icon\\Fruit.png"));
 			pacmanImg = ImageIO.read(new File("Icon\\pacman.png"));
-
+			rotate = new Orien(pacmanImg);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -300,7 +302,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 
 				case 3 : selected = 1;
 				break;
-				
+
 				default : selected = 100;
 				}
 
@@ -366,11 +368,15 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 					g2d.setColor(pd.getColor());
 					g2d.setStroke(new BasicStroke(2.5f));
 					g2d.draw(path); // Finally draw path object
-				}
+				}				
 
 				for(Pacman pacman : pacArr) { // Move all pacman array and draw them
-					p = map.coord2pixel(pacman.getPoint(), getWidth(), getHeight());
-					g.drawImage(pacmanImg, (int)p.x(), (int)p.y(), (int)(20*ratioW), (int)(20*ratioH), this);
+
+					p = map.coord2pixel(pacman.getPoint(), getWidth(), getHeight()); // Convert to pixels coord
+					AffineTransformOp op = rotate.getTransform(pacman.getOrien()); // Save a transform rotate
+
+					g2d.drawImage(op.filter(pacmanImg, null), (int)p.x(), (int)p.y(),(int)(22*ratioW), (int)(22*ratioH), this);
+
 				}
 			}
 
@@ -383,7 +389,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 			System.out.println("Clicks: ("+x+", "+y+')'); // Print coords for each user clicks
 			Point3D p = new Point3D(x,y);
 			p = map.pixel2coord(p, getWidth(), getHeight());
-			System.out.println("Geograpichã coords: ("+p+')'); // Print geo corrds as well
+			System.out.println("Geograpich coords: ("+p+')'); // Print geo corrds as well
 			if(!mouseRadio.isSelected() && !running) { // If in progress don't let to add more Character
 				if(game == null) // If null create a new game
 					game = new Game(); 

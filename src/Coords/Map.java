@@ -132,14 +132,24 @@ public class Map {
 	 * @param maxY
 	 * @return
 	 */
-	public double[] distanceGpsPixles(Point3D a, Point3D b,int maxX, int maxY) {
+	public double distanceGpsPixles(Point3D a, Point3D b,int maxX, int maxY) {
 		a = pixel2coord(a,maxX,maxY); // Convert to gps Coords
 		b = pixel2coord(b,maxX,maxY);
 
 		MyCoords calc = MyCoords.myCoords(); 
 		double result[] = calc.azimuth_elevation_dist(a, b); // Save the result
-		return result;
+		return result[2];
 	}
+	
+	public double anglePoints(Point3D a, Point3D b,int maxX, int maxY) {
+		a = pixel2coord(a,maxX,maxY); // Convert to gps Coords
+		b = pixel2coord(b,maxX,maxY);
+
+		MyCoords calc = MyCoords.myCoords(); 
+		double result[] = calc.azimuth_elevation_dist(a, b); // Save the result
+		return result[0];
+	}
+
 
 	/**
 	 * Return our image map
@@ -148,4 +158,5 @@ public class Map {
 	public BufferedImage getMap() {
 		return myImage;
 	}
+	
 }

@@ -30,6 +30,9 @@ public class Animate extends Thread  {
 	public void run() {
 		Point3D originalPoint; // Save origin point of pacman
 		Map map = Map.map(); // For calculate
+		
+		double angle;
+		
 		Iterator<PathData> it = pacman.getPath().getIterator();
 
 		PathData data = it.next(); // Get pacman data
@@ -43,13 +46,16 @@ public class Animate extends Thread  {
 		
 		while(it.hasNext() && AT.clear) { // Move all the path
 			data = it.next();
-
 			Point3D targetPoint = data.getPoint();
 			EndTime = data.getTime();
 			seconds = 0;
 			Point3D StartPoint = current;
-			while(timeStart+seconds < EndTime && AT.clear) {
+			
+			angle = map.anglePoints(current, targetPoint, frame.getWidth(), frame.getHeight()); // Calculate pacman angle orientation
+			pacman.setOrien(angle-180);
 
+			while(timeStart+seconds < EndTime && AT.clear) {
+				
 				TPrecent = map.normalize(timeStart+seconds, EndTime, timeStart); // Caclulate time ratio
 
 				//calculate the new move point
@@ -73,6 +79,8 @@ public class Animate extends Thread  {
 			frame.update();
 		}
 		pacman.setPoint(originalPoint); // Return to original point
+		pacman.setOrien(0);
+		
 		frame.update(); 
 		AT.Alive(); // Mark as finish
 	}

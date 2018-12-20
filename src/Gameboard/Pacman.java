@@ -13,8 +13,7 @@ public class Pacman extends Character {
 	private double radius; // Radius eating
 	private Path path;  // Path eating
 	private int numOfFruits; // sum of eating fruits
-	private double weightOfFruit; // Sum of all fruits weight eaten
-
+	private double weightOfFruit, orientation; // Sum of all fruits weight eaten
 
 	public Pacman(Point3D point, int id, double speed, double radius) {
 		super(point,id,speed);
@@ -22,6 +21,7 @@ public class Pacman extends Character {
 		this.path = new Path(point,-1); // When created a new path first point it's point of pacman
 		this.weightOfFruit=0;
 		this.numOfFruits=0;
+		this.orientation = 0;
 		
 	}
 	
@@ -67,6 +67,14 @@ public class Pacman extends Character {
 
 	public double getRadius() {
 		return radius;
+	}
+	
+	public double getOrien() {
+		return orientation;
+	}
+	
+	public void setOrien(double angle) {
+		orientation = angle;
 	}
 
 }
