@@ -51,7 +51,7 @@ public class Animate extends Thread  {
 			seconds = 0;
 			Point3D StartPoint = current;
 			
-			angle = map.anglePoints(current, targetPoint, frame.getWidth(), frame.getHeight()); // Calculate pacman angle orientation
+			angle = map.anglePoints(StartPoint, targetPoint, frame.getWidth(), frame.getHeight()); // Calculate pacman angle orientation
 			pacman.setOrien(angle-180);
 
 			while(timeStart+seconds < EndTime && AT.clear) {

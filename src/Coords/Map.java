@@ -141,6 +141,14 @@ public class Map {
 		return result[2];
 	}
 	
+	/**
+	 * Return a angle between 2 points
+	 * @param a
+	 * @param b
+	 * @param maxX
+	 * @param maxY
+	 * @return
+	 */
 	public double anglePoints(Point3D a, Point3D b,int maxX, int maxY) {
 		a = pixel2coord(a,maxX,maxY); // Convert to gps Coords
 		b = pixel2coord(b,maxX,maxY);

@@ -10,18 +10,17 @@ import Geom.Point3D;
  *
  */
 public class Pacman extends Character {
-	private double radius; // Radius eating
 	private Path path;  // Path eating
 	private int numOfFruits; // sum of eating fruits
-	private double weightOfFruit, orientation; // Sum of all fruits weight eaten
+	private double radius,weightOfFruit, orientation; 
 
 	public Pacman(Point3D point, int id, double speed, double radius) {
 		super(point,id,speed);
-		this.radius = radius;
+		this.radius = radius; // Radius eaten
 		this.path = new Path(point,-1); // When created a new path first point it's point of pacman
-		this.weightOfFruit=0;
-		this.numOfFruits=0;
-		this.orientation = 0;
+		this.weightOfFruit = 0; // Sum of all fruits weight eaten
+		this.numOfFruits = 0; 
+		this.orientation = 0; // Start orientation with 0 angle
 		
 	}
 	
