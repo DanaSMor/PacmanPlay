@@ -37,3 +37,6 @@ Read more in Wiki:
 - Geographic coordinate system: https://en.wikipedia.org/wiki/Geographic_coordinate_system
 - CSV files: https://en.wikipedia.org/wiki/Comma-separated_values
 - KML files: https://en.wikipedia.org/wiki/Keyhole_Markup_Language
+
+
+<img src="./Icon/ClassDiagram.jpg">
