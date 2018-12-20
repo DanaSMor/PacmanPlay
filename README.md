@@ -1,3 +1,4 @@
+PACMAN
 =========
 This project represent a game of pacmans in Ariel University area.
 
