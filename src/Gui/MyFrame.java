@@ -265,14 +265,14 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 						"Error: Unable play an empty game",
 						"Error while Playing - please enter Pacmans and Fruits",
 						JOptionPane.ERROR_MESSAGE);
-			
+
 			// If try to play a game with no pacmans send a error
 			else if(game.getFruitArray().size()>0&&game.getPacmanArray().size()==0)
 				JOptionPane.showMessageDialog(this,
 						"Error: Unable play game with no pacmans",
 						"Error while Playing - please enter Pacmans ",
 						JOptionPane.ERROR_MESSAGE);
-			
+
 			else if(game != null) { // Ok let's start the game
 				running = true; // we are in progress
 				ShortestPathAlgo shp = new ShortestPathAlgo(game); // Calculate how much we could do for the shortest routes
@@ -282,9 +282,31 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 
 				repaint();
 
+				String[] speedGame = { "RealTime", "Fast X16", "Faster X32","Cool!(recommend) X64" };
+				int selected =  JOptionPane.showOptionDialog(this,
+						"Just select the game speed you prefer (real time \n"
+								+ "may be slow and exhausting)",
+								"Game speed",
+								JOptionPane.YES_NO_CANCEL_OPTION,
+								JOptionPane.QUESTION_MESSAGE, null,
+								speedGame, speedGame[0]);
+
+				switch(selected) {
+				case 1 : selected = 6;
+				break;
+
+				case 2 : selected = 3;
+				break;
+
+				case 3 : selected = 1;
+				break;
+				
+				default : selected = 100;
+				}
+
 				AT.setNewThreads(game, TotalTime,totalWeightOfFruit,TotalResult); // Create a new "Watch Thread"
 				for(Pacman pac : game.getPacmanArray()) { // Open a new thread for each pacman
-					new Animate(this,pac,AT).start();
+					new Animate(this,pac,AT,selected).start();
 				}
 			}
 
@@ -365,7 +387,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 			if(!mouseRadio.isSelected() && !running) { // If in progress don't let to add more Character
 				if(game == null) // If null create a new game
 					game = new Game(); 
-				
+
 				if(PacmanRadio.isSelected()) { // If user choose pacman, add it
 					int pacmanId = game.getMaxIdPacman()+1;
 					game.addPacman(new Pacman(p, pacmanId,1 , 1));
