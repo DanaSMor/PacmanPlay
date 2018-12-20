@@ -3,7 +3,6 @@ package Coords;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
@@ -16,9 +15,11 @@ import Geom.Point3D;
  *
  */
 public class Map {
-	// final coords frame
-	private final Point3D max = new Point3D(35.21236,32.10569);
-	private final Point3D min = new Point3D(35.20238,32.1019);
+	
+	// final coords frame	
+	private final Point3D max = new Point3D(32.10569 ,35.21236);
+	private final Point3D min = new Point3D(32.1019, 35.20238);
+
 
 	private BufferedImage myImage;
 
@@ -61,16 +62,16 @@ public class Map {
 	 */
 	public Point3D pixel2coord(Point3D c,int maxX, int maxY) {
 		double xPrecent = normalize(c.x(),maxX,0); // Calculate normal for x
-		double transX = convert(xPrecent,max.x(),min.x()); // Translate x to the new ranges
+		double transX = convert(xPrecent,max.y(),min.y()); // Translate x to the new ranges
 
 		double yPrecent = normalize(c.y(),maxY,0); // Calculate normal for y
-		double 	transY = convert(yPrecent,max.y(),min.y()); // Translate y to the new ranges
+		double 	transY = convert(yPrecent,max.x(),min.x()); // Translate y to the new ranges
 
-		double gap = max.y()-transY;  // Get opposite point of y
+		double gap = max.x()-transY;  // Get opposite point of y
 
-		transY = min.y()+gap; // add it
+		transY = min.x()+gap; // add it
 		
-		return new Point3D(transY,transX); // Return the Points in the new ranges with the same ratio ;
+		return new Point3D(transY ,transX); // Return the Points in the new ranges with the same ratio ;
 	}
 
 	/**
@@ -83,8 +84,8 @@ public class Map {
 	 */
 	public Point3D coord2pixel(Point3D c,int maxX, int maxY) {
 		c = new Point3D(c.y(),c.x()); // Replace between x & y for convenience
-		double xPrecent = normalize(c.x(),max.x(),min.x()); // Calculate normal for x
-		double yPrecent = normalize(c.y(),max.y(),min.y()); // Calculate normal for y
+		double xPrecent = normalize(c.x(),max.y(),min.y()); // Calculate normal for x
+		double yPrecent = normalize(c.y(),max.x(),min.x()); // Calculate normal for y
 		
 		double transX = convert(xPrecent,maxX,0); // Translate x to the new ranges
 		double transY = convert(yPrecent,maxY,0); // Translate y to the new ranges
@@ -99,7 +100,7 @@ public class Map {
 			transY = maxY-gap; // Calculate with the new Gap
 		}
 
-		return new Point3D(transX, transY);  // return the new Points
+		return new Point3D(transX,transY);  // return the new Points
 	}
 	
 	/**
