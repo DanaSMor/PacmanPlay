@@ -75,7 +75,7 @@ public class Animate extends Thread  {
 			}
 			timeStart = EndTime;
 			current = targetPoint;
-			AT.removeFruit(data.getId()); // Remove the Fruit that we past
+			AT.removeFruit(data.getId()); // Remove the fruit we've been through
 			frame.update();
 		}
 		pacman.setPoint(originalPoint); // Return to original point

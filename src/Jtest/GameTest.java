@@ -2,13 +2,10 @@ package Jtest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.File;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import Coords.Map;
-import File_format.Csv2Elem;
 import Gameboard.Fruit;
 import Gameboard.Game;
 import Gameboard.Pacman;

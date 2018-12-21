@@ -10,7 +10,7 @@ import Geom.Point3D;
 public class Fruit extends Character { 
 	public boolean destroyed; // when the fruit is eaten
 
-	public Fruit( Point3D point, int id, double weight) {
+	public Fruit(Point3D point, int id, double weight) {
 		super(point,id, weight);
 		destroyed = true;
 	}

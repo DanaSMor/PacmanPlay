@@ -171,7 +171,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 
 	/**
 	 * Didn't find if repaint is a synchronized method
-	 * so for double check this method ensures this
+	 * so for double check this method ensures that
 	 */
 	public synchronized void update() {
 		repaint();
@@ -376,7 +376,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 
 					p = map.coord2pixel(pacman.getPoint(), getWidth(), getHeight()); // Convert to pixels coord
 					AffineTransformOp op = rotate.getTransform(pacman.getOrien()); // Save a transform rotate
-
+					// Draw with a correct rotate
 					g2d.drawImage(op.filter(pacmanImg, null), (int)p.x(), (int)p.y(),(int)(22*ratioW), (int)(22*ratioH), this);
 
 				}
