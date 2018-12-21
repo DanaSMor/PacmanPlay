@@ -215,7 +215,9 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 			int s = fc.showOpenDialog(null); // Open a file Chooser dialog
 			if(s == JFileChooser.APPROVE_OPTION) { // The user select a csv file if doesn't do nothing
 				File f = fc.getSelectedFile();
-				Csv2Elem cs = new Csv2Elem(f); 
+				Csv2Elem cs = new Csv2Elem(f);
+				AT.clear = false;
+				running = false;
 				game = cs.MakeElements(); // Translate a csv file into a new game
 				repaint();
 			}
