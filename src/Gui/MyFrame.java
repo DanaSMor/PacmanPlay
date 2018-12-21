@@ -64,13 +64,13 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 	private JMenuItem open,savekml,savecsv,clear,play,Exit;
 	private Game game; // Current game
 	private Map map; // Our image & converts
-	private BufferedImage pacmanImg,fruitImg;
+	private BufferedImage pacmanImg, fruitImg;
 	private BackGroundPanel panel; // Our Panel where all the game is displayed
 	private Cursor Fruit,Pacman; // Change icon mouse accord selection
 	private JRadioButton PacmanRadio, FruitRadio, mouseRadio; // Radio button to switch between Pacman, Fruit and Mouse
 	private boolean running; // If is in animation progress avoid to do another commands
 	private AliveThread AT;
-	private Orien rotate;
+	private Orien rotate;	
 
 	public static void main(String[] args) {
 		new  MyFrame();
@@ -79,7 +79,6 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 	public MyFrame() {
 		running = false; // We start with no progress(game running animation)
 		AT = new AliveThread(this);
-
 		displayCoord = new JLabel();
 		displayCoord.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		displayCoord.setForeground(Color.white);
@@ -290,7 +289,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 								+ "may be slow and exhausting)",
 								"Game speed",
 								JOptionPane.YES_NO_CANCEL_OPTION,
-								JOptionPane.QUESTION_MESSAGE, null,
+								JOptionPane.QUESTION_MESSAGE, new ImageIcon("Icon\\pacman.png"),
 								speedGame, speedGame[0]);
 
 				switch(selected) {
@@ -330,11 +329,12 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
+
 			// Draw our map as background
 			g.drawImage(map.getMap(), 0, 0, getWidth(), getHeight(), this);
 
 			if(game != null) {
-				Graphics2D g2d = (Graphics2D) g; // we want to paint the paths with path java object, and control the stroke
+				Graphics2D g2d = (Graphics2D) g; // the 2d drawing java paint
 				// Get the current game elements arrays
 				ArrayList<Pacman> pacArr = game.getPacmanArray();
 				ArrayList<Fruit> fruitArr =  game.getFruitArray();
