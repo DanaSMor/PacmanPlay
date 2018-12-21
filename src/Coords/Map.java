@@ -125,7 +125,7 @@ public class Map {
 	}
 
 	/**
-	 * Getting a Pixles Points and Calculate the gps distance
+	 * Getting a Gps Points and Calculate the gps distance
 	 * @param a
 	 * @param b
 	 * @param maxX
@@ -133,9 +133,6 @@ public class Map {
 	 * @return
 	 */
 	public double distanceGpsPixles(Point3D a, Point3D b,int maxX, int maxY) {
-		a = pixel2coord(a,maxX,maxY); // Convert to gps Coords
-		b = pixel2coord(b,maxX,maxY);
-
 		MyCoords calc = MyCoords.myCoords(); 
 		double result[] = calc.azimuth_elevation_dist(a, b); // Save the result
 		return result[2];
