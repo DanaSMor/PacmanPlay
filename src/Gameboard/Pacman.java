@@ -33,6 +33,7 @@ public class Pacman extends Character {
 		super(p.getPoint(),p.getId(),p.getAttribute());
 		this.radius = p.getRadius();
 		this.path = p.getPath();
+		this.orientation = 0;
 	}
 	
 	public void addToPath(Fruit f, double currentTime)

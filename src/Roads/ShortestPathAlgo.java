@@ -139,7 +139,6 @@ public class ShortestPathAlgo {
 			Pacman p = itPac.next();
 			if(p.getPath().getLengthOfPath()!=0)
 			{
-				System.out.println(i);
 				//adding path
 				p.setPoint(p.getPath().getRoad().get(0).getPoint());//sets the pacman back to his original point
 				path.add(p.getPath());

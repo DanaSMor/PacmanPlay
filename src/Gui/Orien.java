@@ -23,6 +23,7 @@ public class Orien {
 	 * @return
 	 */
 	public AffineTransformOp getTransform(double angle) {
+		if(Double.isNaN(angle)) angle=0;
 		AffineTransform transform = AffineTransform.getRotateInstance(Math.toRadians(angle), dx, dy);
 		 AffineTransformOp op = new AffineTransformOp(transform, AffineTransformOp.TYPE_BILINEAR);
 		 return op;

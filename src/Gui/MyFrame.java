@@ -361,7 +361,7 @@ public class MyFrame extends JFrame implements ActionListener, Serializable  {
 
 					while(it.hasNext()) { // Move all the points path for that pacman
 						pd = it.next();
-						p =pd.getPoint();
+						p = pd.getPoint();
 						p = map.coord2pixel(p, getWidth(), getHeight()); // convert to pixels
 						path.lineTo(p.x(), p.y()); // Add it to path deawing
 					}
