@@ -45,8 +45,12 @@ public class Game2kml {
 		
 		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"); // Opening of kml file
 		sb.append("<kml xmlns=\"http://www.opengis.net/kml/2.2\">");
-		sb.append("<Document><Style id=\"pacman\"><IconStyle>\n<Icon><href>https://cdn1.iconfinder.com/data/icons/game-13/100/__4-512.png</href>\n</Icon></IconStyle></Style><Style id=\"fruit\"><IconStyle>\n");
-		sb.append("<Icon><href>https://cdn2.iconfinder.com/data/icons/vegetable-and-fruit-fill-style/64/strawberry-fruit-tasty-dessert-juicy-512.png</href></Icon></IconStyle></Style><Style id=\"green\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style>\n");
+		sb.append("<Document><Style id=\"pacman\"><IconStyle>\n<Icon>"
+				+ "<href>https://cdn1.iconfinder.com/data/icons/game-13/100/__4-512.png</href>\n</Icon>"
+				+ "</IconStyle></Style><Style id=\"fruit\"><IconStyle>\n");
+		sb.append("<Icon><href>https://cdn2.iconfinder.com/data/icons/vegetable-and-fruit-fill-style/64/strawberry-fruit-tasty-dessert-juicy-512.png</href>"
+				+ "</Icon></IconStyle></Style>"
+				+ "<Style id=\"green\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style>\n");
 
 		// For each layer in the project add the correct tags
 		Iterator<Pacman> itPacman = g.getPacmanIterator();
